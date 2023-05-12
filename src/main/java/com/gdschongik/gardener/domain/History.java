@@ -2,9 +2,8 @@ package com.gdschongik.gardener.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
@@ -15,7 +14,9 @@ public class History {
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
+
     private int commitCount;
+
     private LocalDateTime date;
 
     @Builder

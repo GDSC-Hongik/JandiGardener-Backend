@@ -3,7 +3,6 @@ package com.gdschongik.gardener.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.time.LocalDateTime;
 
 @Getter
@@ -19,7 +18,9 @@ public class Reward {
     private User user;
 
     private String description;
+
     private String redeem;
+
     @CreationTimestamp
     private LocalDateTime receivedAt;
 
@@ -30,6 +31,7 @@ public class Reward {
         this.redeem = redeem;
         this.receivedAt = receivedAt;
     }
+
     public static Reward createReward(User user, String description, String redeem, LocalDateTime receivedAt) {
         return Reward.builder()
                 .user(user)
