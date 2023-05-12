@@ -22,4 +22,23 @@ public class Challenge {
     private String description;
 
     private String bannerUrl;
+
+    @Builder
+    public Challenge(String name, LocalDateTime startAt, LocalDateTime endAt, String description, String bannerUrl) {
+        this.name = name;
+        this.startAt = startAt;
+        this.endAt = endAt;
+        this.description = description;
+        this.bannerUrl = bannerUrl;
+    }
+
+    public static Challenge createChallenge(String name, LocalDateTime startAt, LocalDateTime endAt, String description, String bannerUrl) {
+        return Challenge.builder()
+                .name(name)
+                .startAt(startAt)
+                .endAt(endAt)
+                .description(description)
+                .bannerUrl(bannerUrl)
+                .build();
+    }
 }

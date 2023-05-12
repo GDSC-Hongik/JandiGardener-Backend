@@ -24,4 +24,21 @@ public class User {
     private LocalDateTime createdAt;
 
     private LocalDateTime lastLoginAt;
+
+    @Builder
+    public User(String name, String handle, String githubId, LocalDateTime createdAt, LocalDateTime lastLoginAt) {
+        this.name = name;
+        this.handle = handle;
+        this.githubId = githubId;
+        this.createdAt = createdAt;
+        this.lastLoginAt = lastLoginAt;
+    }
+
+    public static User createUser(String name, String handle, String githubId) {
+        return User.builder()
+                .name(name)
+                .handle(handle)
+                .githubId(githubId)
+                .build();
+    }
 }
