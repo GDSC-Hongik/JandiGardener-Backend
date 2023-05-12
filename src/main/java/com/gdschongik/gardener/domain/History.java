@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class History {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,8 +15,6 @@ public class History {
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
-
-
     private int commitCount;
     private LocalDateTime date;
 
