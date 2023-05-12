@@ -2,6 +2,7 @@ package com.gdschongik.gardener.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -21,6 +22,7 @@ public class User {
 
     private String githubId;
 
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
     private LocalDateTime lastLoginAt;
