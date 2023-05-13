@@ -23,10 +23,10 @@ public class User {
 
     private String githubId;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
     private List<History> histories = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
     private List<Reward> rewards = new ArrayList<>();
 
     @CreationTimestamp
