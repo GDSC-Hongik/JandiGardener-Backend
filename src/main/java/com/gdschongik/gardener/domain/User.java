@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.*;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,6 +22,12 @@ public class User {
     private String handle;
 
     private String githubId;
+
+    @OneToMany(mappedBy = "user")
+    private List<History> histories = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Reward> rewards = new ArrayList<>();
 
     @CreationTimestamp
     private LocalDateTime createdAt;
