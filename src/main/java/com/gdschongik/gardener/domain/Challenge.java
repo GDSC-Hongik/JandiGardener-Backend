@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.*;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,6 +23,9 @@ public class Challenge {
     private String description;
 
     private String bannerUrl;
+
+    @OneToMany(mappedBy = "challenge")
+    private List<Registration> registrations = new ArrayList<>();
 
     @Builder
     public Challenge(String name, LocalDateTime startAt, LocalDateTime endAt, String description, String bannerUrl) {
