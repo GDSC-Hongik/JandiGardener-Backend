@@ -29,6 +29,9 @@ public class User {
     @OneToMany(mappedBy = "user", orphanRemoval = true)
     private List<Reward> rewards = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Registration> registrations = new ArrayList<>();
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
