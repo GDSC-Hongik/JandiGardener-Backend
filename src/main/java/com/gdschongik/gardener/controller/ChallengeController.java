@@ -19,4 +19,8 @@ public class ChallengeController {
         this.challengeService = challengeService;
     }
 
+    @PostMapping("/{challengeId}/register")
+    public ResponseEntity<ChallengeRegisterResponse> register(@PathVariable Long challengeId) {
+
+    }
 }
