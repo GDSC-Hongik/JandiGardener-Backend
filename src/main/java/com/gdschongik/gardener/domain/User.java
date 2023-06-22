@@ -17,6 +17,9 @@ public class User {
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
     private String email;
 
     private String handle;
@@ -34,20 +37,34 @@ public class User {
 
     private LocalDateTime lastLoginAt;
 
-    @Builder
-    public User(String name, String handle, String githubId, LocalDateTime createdAt, LocalDateTime lastLoginAt) {
+    private String socialId;
+
+    private String refreshToken;
+
+    @Builder //TODO: 굳이 안 넣어도 될 것 같은데? 사용처가 없음
+    public User(String name, UserRole role, String handle, String githubId, LocalDateTime createdAt, LocalDateTime lastLoginAt) {
         this.name = name;
+        this.role = role;
         this.handle = handle;
         this.githubId = githubId;
         this.createdAt = createdAt;
         this.lastLoginAt = lastLoginAt;
     }
 
-    public static User createUser(String name, String handle, String githubId) {
+    public static User createUser(String name, UserRole role, String handle, String githubId) {
         return User.builder()
                 .name(name)
+                .role(role)
                 .handle(handle)
                 .githubId(githubId)
                 .build();
+    }
+
+    public void authorize() {
+        this.role = UserRole.USER;
+    }
+
+    public void updateRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }
